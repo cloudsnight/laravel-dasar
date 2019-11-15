@@ -14,3 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/koding', function(){
+    return 'Halo Sekolah Koding !';
+});
+
+Route::get('/home', function(){
+    return view('home');
+});
+
+Route::get('/blog', function(){
+    return view('blog/home');
+});
