@@ -37,6 +37,7 @@ class BlogController extends Controller
         // Menggunakan variabel yang berisi array
         $nilai = 'ini adalah linkya dengan nomor id : '. $id;
         $users = ['Muksin', 'Husen', 'Hasanah'];
-        return view('blog/single', ['nilai' => $nilai, 'users' => $users]);
+        $unescaped = '<script>alert("ini adalah alert dari unescaped !");</script>';
+        return view('blog/single', ['nilai' => $nilai, 'users' => $users, 'unescaped' => $unescaped]);
     }
 }

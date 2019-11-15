@@ -1,12 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Single Blade</title>
-</head>
-<body>
+@extends('layouts.master')
+
+@section('title', 'single blade')
+
+@section('style')
+  <style>
+    #blog1{
+      background: green;
+      color: white;
+    }
+  </style>
+@endsection
+
+@section('content')
   <h1>Halaman Blog secara spesifik</h1>
   <h2>
     {{-- Mengakses data $id dari BlogController --}}
@@ -21,5 +26,13 @@
       <li>{{ $user }}</li>
     @endforeach
   </ul>
-</body>
-</html>
+
+  @if(count($users) > 5)
+    <p>Usernya lebih dari lima</p>
+  @else
+    <p>Usernya tidak lebih dari lima</p>
+  @endif
+
+  {{-- Eksekusi unescaped disini --}}
+  {!! $unescaped !!}
+@endsection

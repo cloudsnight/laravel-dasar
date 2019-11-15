@@ -1,12 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Home Blog</title>
-</head>
-<body>
+@extends('layouts.master')
+
+@section('style')
+  <style>
+    #blog{
+      background: red;
+      color: white;
+    }
+  </style>
+@endsection
+
+{{-- section title cara panjang --}}
+{{-- @section('title')
+  BLog Sekolah Koding
+@endsection --}}
+
+{{-- section title cara pendek --}}
+@section('title', 'BLog Sekolah Koding')
+
+@section('content')
   <h1>Selamat Datang di Blog kami</h1>
-</body>
-</html>
+@endsection
