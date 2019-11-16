@@ -23,7 +23,7 @@
 
   <ul>
     @foreach($users as $user)
-      <li>{{ $user }}</li>
+      <li>Username: {{ $user->username }} || Dengan Password: {{ $user->password }}. </li>
     @endforeach
   </ul>
 
@@ -34,5 +34,5 @@
   @endif
 
   {{-- Eksekusi unescaped disini --}}
-  {!! $unescaped !!}
+  {{-- {!! $unescaped !!} --}}
 @endsection
