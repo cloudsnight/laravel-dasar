@@ -5,14 +5,25 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 // Facades\DB Penting untuk pemanggilan DB::table atau semacamnya //
 use Illuminate\Support\Facades\DB;
+// Menggunakan Model dari yang telah kita buat
+// Model yang digunakan terletak dibawah folder App\Models
+use App\Models\Blog;
+use App\Ngasal_Banget;
 
 class BlogController extends Controller
 {
+    // Fungsi ini menampilkan /blog
     public function index()
     {
-        return view('blog/home');
+        // -- Testing Model non-konvensional -- //
+            // $blogs = Ngasal_Banget::all();
+        // ----------------------------------- //
+
+        $blogs = Blog::all();
+        return view('blog/home' , ['blogs' => $blogs]);
     }
 
+    // Fungsi ini menampilkan blog/{id}
     public function show($id)
     {
         // -- menguji parameter id -- //
@@ -57,8 +68,11 @@ class BlogController extends Controller
         // DB::table('users')->where('id', '>', 5)->delete();
         // ----------------------------------------------------------- //
         
-        $users = DB::table('users')->get();
-        $unescaped = '<script>alert("ini adalah alert dari unescaped !");</script>';
-        return view('blog/single', ['nilai' => $nilai, 'users' => $users, 'unescaped' => $unescaped]);
+        // $users = DB::table('users')->get();
+        // $unescaped = '<script>alert("ini adalah alert dari unescaped !");</script>';
+        // return view('blog/single', ['nilai' => $nilai, 'users' => $users, 'unescaped' => $unescaped]);
+
+        $blog = Blog::find($id);
+        return view('blog/single', ['blog' => $blog]);
     }
 }

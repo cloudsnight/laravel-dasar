@@ -13,26 +13,30 @@
 
 @section('content')
   <h1>Halaman Blog secara spesifik</h1>
-  <h2>
+  {{-- <h2> --}}
     {{-- Mengakses data $id dari BlogController --}}
     {{-- id : {{ $id }} --}}
 
     {{-- Mengakses $nilai dan $user dari BlogController --}}
-    {{ $nilai }}
-  </h2>
+    {{-- {{ $nilai }} --}}
+  {{-- </h2> --}}
 
-  <ul>
+  {{-- <ul>
     @foreach($users as $user)
       <li>Username: {{ $user->username }} || Dengan Password: {{ $user->password }}. </li>
     @endforeach
-  </ul>
+  </ul> --}}
 
-  @if(count($users) > 5)
+  {{-- @if(count($users) > 5)
     <p>Usernya lebih dari lima</p>
   @else
     <p>Usernya tidak lebih dari lima</p>
-  @endif
+  @endif --}}
 
   {{-- Eksekusi unescaped disini --}}
   {{-- {!! $unescaped !!} --}}
+
+  <h2> {{ $blog->title }} </h2>
+  <hr>
+  <p>{{ $blog->description }}</p>
 @endsection

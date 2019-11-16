@@ -12,7 +12,7 @@
     <nav>
       <a href="/">Home</a>
       <a id="blog" href="/blog">Blog</a>
-      <a id="blog1" href="/blog/1">Blog-1</a>
+      <a id="blog1" href="/blog/1">Content</a>
     </nav>
   </header>
   <br>
