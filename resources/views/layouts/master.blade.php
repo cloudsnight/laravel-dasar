@@ -14,6 +14,7 @@
       <a id="blog" href="/blog">Blog</a>
       <a id="content" href="/blog/1">Content</a>
       <a id="create" href="/blog/create">Create</a>
+      <a id="trash" href="/blog/trash">Trash</a>
     </nav>
   </header>
   <br>

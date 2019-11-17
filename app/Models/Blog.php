@@ -9,5 +9,5 @@ class Blog extends Model
 {
     use SoftDeletes;
 
-    protected $dates = ['deleted_at'];
+    protected $date = ['deleted_at'];
 }

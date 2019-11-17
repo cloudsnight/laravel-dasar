@@ -58,4 +58,18 @@ class BlogController extends Controller
         $blog->save();
         return '<a href="/blog/'.$id.'">Klik sini untuk menge-cek</a>';
     }
+
+    public function destroy($id)
+    {
+        $blog = Blog::find($id);
+        $blog->delete();
+
+        return redirect('blog');
+    }
+
+    public function trash()
+    {
+        $blogs = Blog::onlyTrashed()->get();
+        return view('blog/trash' , ['blogs' => $blogs]);
+    }
 }
