@@ -54,7 +54,7 @@ class BlogController extends Controller
     {
         $blog = Blog::find($id);
         if(!$blog){
-            return view('404');
+            return abort(404);
         }
         return view('blog/single', ['blog' => $blog]);
     }
