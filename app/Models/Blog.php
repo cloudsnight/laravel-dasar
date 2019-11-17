@@ -3,14 +3,18 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
+// Mengaktifkan soft deletes dengan menggunakan library eloquent soft deletes //
 use Illuminate\Database\Eloquent\SoftDeletes;
+// -------------------------------------------------------------------------- //
 
 class Blog extends Model
 {
-    // soft deletes
+    // ---------- soft deletes --------- //
     use SoftDeletes;
 
     protected $date = ['deleted_at'];
+    // -------------------------------- //
 
     // guarded merupakan mass assignment mode blacklist
     // protected $guarded = [];
