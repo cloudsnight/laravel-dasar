@@ -13,6 +13,22 @@ class BlogController extends Controller
         return view('blog/home', ['blogs' => $blogs]);
     }
 
+    public function create()
+    {
+        return view('blog/create');
+    }
+
+    public function store(Request $request)
+    {
+        $blog = new Blog;
+        $blog->title = $request->title;
+        $blog->description = $request->description;
+        $blog->updated_at = null;
+        $blog->save();
+
+        return redirect('blog');
+    }
+
     public function show($id)
     {
         $blog = Blog::find($id);
