@@ -15,6 +15,7 @@
       <a id="content" href="/blog/1">Content</a>
       <a id="create" href="/blog/create">Create</a>
       <a id="trash" href="/blog/trash">Trash</a>
+      @yield('nav-link')
     </nav>
   </header>
   <br>

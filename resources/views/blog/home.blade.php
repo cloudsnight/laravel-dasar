@@ -12,6 +12,11 @@
     h3{
       text-decoration: underline;
     }
+
+    #btn-action{
+      display: flex;
+      width: 100px;
+    }
   </style>
 @endsection
 
@@ -23,11 +28,16 @@
     @foreach($blogs as $blog)
       <li>
         <a href="/blog/{{ $blog->id }}">{{ $blog->title }}</a>
-          <form action="blog/{{ $blog->id }}" method="post">
-            <input type="submit" name="submit" value="Delete">
-            @csrf
-            <input type="hidden" name="_method" value="DELETE">
-          </form>
+          <div id="btn-action">
+            <form action="blog/{{ $blog->id }}" method="post">
+              <input type="submit" name="submit" value="Delete">
+              @csrf
+              <input type="hidden" name="_method" value="DELETE">
+            </form>
+            <form action="/blog/{{ $blog->id }}/edit" method="get">
+              <button type="submit">Edit</button>
+            </form>
+          </div>
       </li>
     @endforeach
   </ul>

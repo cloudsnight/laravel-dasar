@@ -2,6 +2,20 @@
 
 @section('title', 'Edit Page')
 
+@section('style')
+  <style>
+    #edit{
+      background: darkgreen;
+      color: salmon;
+      cursor: default;
+    }
+  </style>
+@endsection
+
+@section('nav-link')
+  <a id="edit">Edit Mode</a>
+@endsection
+
 @section('content')
   <h1>Edit datang di Blog ini</h1>
   <form action="/blog/{{ $blog->id }}" method="post">
