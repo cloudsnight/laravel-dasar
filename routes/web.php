@@ -18,6 +18,7 @@ Route::get('/', function () {
 Route::get('/blog/create', 'BlogController@create');
 Route::post('/blog', 'BlogController@store');
 Route::get('/blog/trash', 'BlogController@trash');
+Route::post('/blog/{id}/restore', 'BlogController@restore');
 
 Route::get('/blog', 'BlogController@index');
 Route::get('/blog/{id}', 'BlogController@show');
@@ -27,3 +28,5 @@ Route::get('/blog/{id}/edit', 'BlogController@edit');
 Route::put('/blog/{id}', 'BlogController@update');
 
 Route::delete('/blog/{id}', 'BlogController@destroy');
+
+Route::delete('/blog/{id}/force_destroy', 'BlogController@forceDestroy');

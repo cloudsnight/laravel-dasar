@@ -12,19 +12,27 @@
 @endsection
 
 @section('content')
-  <h1>Atur mana yang mau di-restore ataupun di-delete</h1>
+  <h1>Tempat Pembuangan</h1>
 
-  <ul>
-    @foreach($blogs as $blog)
-      <li>{{ $blog->title }}
-        <form action="blog/{{ $blog->id }}" method="post">
-          <input type="submit" name="submit" value="Delete Permanently">
-          <input type="submit" name="submit" value="Restore">
-          @csrf
-          <input type="hidden" name="_method" value="DELETE">
-        </form>
-      </li>
-    @endforeach
-  </ul>
+  @if($blogs->count() <= 0)
+    <p>Kosong</p>
+  @else
+    <ul>
+      @foreach($blogs as $blog)
+        <li>{{ $blog->title }}
+          <form action="/blog/{{ $blog->id }}/force_destroy" method="post">
+            <button type="submit" onclick="return confirm('Are you sure want to delete this forever ?');">Delete Permanently</button>
+            @csrf
+            <input type="hidden" name="_method" value="DELETE">
+          </form>
+          
+          <form action="/blog/{{ $blog->id }}/restore" method="post">
+            <input type="submit" name="submit" value="Restore">
+            @csrf
+          </form>
+        </li>
+      @endforeach
+    </ul>
+  @endif
 
 @endsection
