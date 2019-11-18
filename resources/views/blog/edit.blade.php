@@ -19,8 +19,17 @@
 @section('content')
   <h1>Edit datang di Blog ini</h1>
   <form action="/blog/{{ $blog->id }}" method="post">
-    <input type="text" name="title" value="{{ $blog->title }}"><br>
-    <textarea name="description"cols="30" rows="10">{{ $blog->description }}</textarea><br>
+    {{-- Validasi menggunakan if statement untuk edit mode --}}
+    <input type="text" name="title" value="{{ count($errors) > 0 ? old('title') : $blog->title }}">
+    @if($errors->has('title'))
+      <p>{{ $errors->first('title') }}</p>
+    @endif
+    <br>
+    <textarea name="description"cols="30" rows="10">{{ count($errors) > 0 ? old('description') : $blog->description }}</textarea>
+    @if($errors->has('description'))
+      <p>{{ $errors->first('description') }}</p>
+    @endif
+    <br>
     <input type="submit" name="submit" value="edit">
 
     @csrf

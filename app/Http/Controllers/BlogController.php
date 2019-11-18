@@ -20,9 +20,10 @@ class BlogController extends Controller
 
     public function store(Request $request)
     {
+        // $this->validate($request, ['rule'])
         $this->validate($request, [
-            'title' => 'required|min:5',
-            'description' => 'required|min:10|max:100'
+            'title' => 'required|min:4',
+            'description' => 'required|min:5|max:100'
         ]);
 
         $blog = new Blog;
@@ -56,6 +57,11 @@ class BlogController extends Controller
         // cek request guna melihat hasil response dari input pada view kita dengan die dump. //
         // dd($request);
         // ---------------------------------------------------------------------------------- //
+
+        $this->validate($request, [
+            'title' => 'required|min:4',
+            'description' => 'required|min:5|max:255'
+        ]);
 
         $blog = Blog::find($id);
         $blog->title = $request->title;
